@@ -1,0 +1,292 @@
+body {
+    background-color: #5f1010;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+}
+
+
+.sidebar {
+    background-color: #333;
+    color: #fff;
+    width: 160px;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+}
+
+.sidebar a {
+    display: block;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #fff;
+    transition: #5f1010 0.3s ease;
+    margin-bottom: 10px;
+}
+
+
+
+.sidebar a:hover {
+  background-color: #5f1010; 
+}
+
+.content {
+    background-color: #5f1010;
+    flex: 1;
+    margin-left: 220px;
+    padding: 20px;
+
+}
+
+h1 {
+    color: #fff;
+    margin-bottom: 20px;
+
+}
+
+h2 {
+  color: #5f1010; 
+  font-size: 24px; 
+  margin-bottom: 10px; 
+  border-bottom: 2px solid #5f1010; 
+  font-family: "Arial", sans-serif; 
+  font-weight: bold; 
+}
+
+.form-group2{
+  color: #5f1010; 
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+
+.customer-details {
+  width: 80%;
+  box-sizing: border-box;
+}
+
+.customer-box {
+    width: 98%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-box {
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+.form-group {
+    margin-bottom: 24px;
+
+}
+
+.error-message {
+    margin-top: 20px;
+    margin-left: 60px;
+    color: red;
+}
+
+.tablink {
+    margin-left: 20px;
+}
+
+.tablebox {
+    margin-top: 20px;
+}
+
+
+.search-group{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.search-box {
+    margin-left: 20px;
+}
+
+.product-box {
+    margin-top: 20px;
+    width: 98%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.define-box{
+    margin-top: 20px;
+    width: 98%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.discount-box{
+  margin-top: 20px;
+  width: 98%;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.place-order-box{
+    margin-top: 20px;
+    width: 98%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.error-message {
+    background-color: #5f1010;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+  }
+  
+  .error-box p {
+    margin: 0;
+  }
+  
+  .ok-button a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .ok-button a:hover {
+    text-decoration: underline;
+  }
+
+  .tablebox4{
+    margin-top: 30px;
+  }
+  .tablebox5{
+    margin-top: 30px;
+  }
+  .tablebox6{
+    margin-top: 30px;
+  }
+
+  .tablebox7{
+    margin-top: 30px;
+  }
+
+  .add-product{
+    margin-top: 30px;
+  }
+
+  .place-box{
+    margin-top: 30px;
+  }
+
+  .view-order{
+    margin-top: 30px;
+  }
+
+  .order-view-box{
+    margin-top: 20px;
+    width: 98%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.detals-view{
+    margin-top: 30px;
+  }
+
+
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Apply styles to table headers */
+th {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Apply alternating row colors */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Apply styles to table cells */
+td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Apply styles to tab buttons */
+.tablink {
+  background-color:#333 ;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+/* Apply styles when hovering over tab buttons */
+.tablink:hover {
+  background-color: #5f1010; 
+}
+
+.submit-buttons{
+  margin-top : 20px;
+  background-color:#5f1010; 
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 30px;
+  
+}
+
+.button-container {
+  display: flex;
+  justify-content: center; /* Horizontally centers the buttons */
+  margin: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

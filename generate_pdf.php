@@ -4,7 +4,6 @@ require_once "Libraries/tcpdf/tcpdf.php";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["print_order"])) {
     $order_number = $_POST["order_number"];
-    //$order_number = 0003;
 
     // Create a new TCPDF instance
     $pdf = new TCPDF('L', 'mm', 'A3', true, 'UTF-8', false);
@@ -54,7 +53,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["print_order"])) {
 
     // Add Net Amount row
     $pdf->Cell(320, 10, 'Net Amount:', 1, 0, 'R');
-    $pdf->Cell(40, 10, $netAmount, 1);
+    $formattedNetAmount = number_format($netAmount, 2);
+    $pdf->Cell(40, 10, $formattedNetAmount , 1);
 
     // Output PDF to the browser
     $pdf->Output('order_details.pdf', 'D'); 

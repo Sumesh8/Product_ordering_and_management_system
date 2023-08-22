@@ -3,7 +3,7 @@
 $servername = 'localhost';
 $username_db = 'root';
 $password_db = '';
-$dbname = 'ceylon'; 
+$dbname = 'prouct_order_and_management_system'; 
 
 // Create a connection
 $conn = new mysqli($servername, $username_db, $password_db, $dbname);

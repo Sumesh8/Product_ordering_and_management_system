@@ -230,16 +230,13 @@ if (isset($_SESSION['username'])) {
 
 
                 <!-- View Order Tab -->
-                <div id="view-order" >
                 <div id="view_order" class="taborder" style="display: none;">
                     <!-- Add code to display privios order information from the database -->
                     <?php include 'view_order.php'; ?>
                 </div>
-                </div>
 
 
             </div>
-
 
             <div class="order-view-box" id= "order-view">
                 <h2>Order Details</h2>

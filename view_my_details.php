@@ -124,10 +124,25 @@ require_once('config.php');
 
                 <tr>
                     <td colspan="9" align="right"><strong>Total Net Amount:</strong></td>
-                    <td><?php echo $netAmount; ?></td>
+                    <td><?php 
+                    $formattedNetAmount = number_format($netAmount,2);
+                    echo $formattedNetAmount; ?></td>
                     <td></td>
                 </tr>
             </table>
+        </div>
+
+        <div class = "button-container">
+        <form action="generate_csv.php" method="post">
+            <input type="hidden" name="order_number" value="<?php echo $submit_order_number; ?>">
+            <button type="submit" name="print_order" class = "submit-buttons">Print CSV</button>
+        </form>
+
+        <form action="generate_pdf.php" method="post">
+            <input type="hidden" name="order_number" value="<?php echo $submit_order_number; ?>">
+            <button type="submit" name="print_order" class = "submit-buttons">Print PDF</button>
+        </form>
+        </div>
         </div>
 </div>
 <?php  } 
@@ -172,6 +187,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["bulk_operation"])) {
         if (isset($_POST['selected_orders'])) {
             foreach ($_POST['selected_orders'] as $selected_order) {
                 $submit_order_number = $selected_order;
+                $submitted_orders[] = $submit_order_number;
 
                 $sql_select_order_bulk = "SELECT * FROM order_details WHERE order_number = '$submit_order_number'";
                 $result_order_bulk = $conn->query($sql_select_order_bulk);
@@ -233,11 +249,30 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["bulk_operation"])) {
         ?>
         <tr>
         <td colspan="14" align="right">Total Net Amount :</td>
-        <td ><?php echo $totalNetAmount; ?></td>
+        <td ><?php 
+        $formattedTotalNetAmount = number_format($totalNetAmount,2);
+        echo $formattedTotalNetAmount; ?></td>
 
     </tr>
     </table>
 </div>
+
+<div class="button-container">
+        <form action="generate_invoce_csv.php" method="post">
+        <?php foreach ($submitted_orders as $order_number) { ?>
+            <input type="hidden" name="order_number[]" value="<?php echo $order_number; ?>">
+        <?php } ?>
+
+            <button type="submit" name="print_order" class="submit-buttons">Print CSV</button>
+        </form>
+
+        <form action="generate_invoice_pdf.php" method="post">
+        <?php foreach ($submitted_orders as $order_number) { ?>
+            <input type="hidden" name="order_number[]" value="<?php echo $order_number; ?>">
+        <?php } ?>
+            <button type="submit" name="print_order" class="submit-buttons">Print PDF</button>
+        </form>
+        </div>
 
 <?php
 

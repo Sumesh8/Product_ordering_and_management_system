@@ -13,7 +13,7 @@
     $next_discount_code_padded = str_pad($next_discount_code, 4, '0', STR_PAD_LEFT);
     ?>
 
-    <form method="post">
+    <form method="post" action = "add_register_discount.php">
         <div class="form-group">
             <label for="discount_label">Dicount Label:</label>
             <input type="text" name="discount_label" id="discount_label" value="<?php echo $next_discount_code_padded; ?>" readonly>
@@ -110,116 +110,5 @@
     // Trigger the change event initially to set the initial value
     updateInputDiscountField();
 </script>
-
-    <div class="error-message">
-        <?php
-        if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit_discount_register"])) {
-            $type = $_POST["type"];
-            $product_name = $_POST["selected_product_name4"];
-            // Select product code,
-            $sql_check_product = "SELECT product_code,price FROM product WHERE product_name = '$product_name'";
-            $result_products = $conn->query($sql_check_product);
-            if ($result_products->num_rows > 0) {
-                while ($row = $result_products->fetch_assoc()) {
-                    $product_code = $row['product_code'];
-                    $unit_price = $row['price'];
-                }
-            } else {
-                // No products found
-                echo "Error: No products found.";
-                echo "<div class = \"ok-button\">";
-                echo "<td><a href=\"admindashboard.php\">   OK</a></td>";
-                echo "</div>";
-                exit;
-            }
-            
-            $discount_product_for_define = $_POST["discount_product_for_define"];
-            $purchase_quantity = $_POST["purchase_quantity"];
-            $discount = $_POST["discount"];
-            $lower_limit = $_POST["lower_limit"];
-            $upper_limit = $_POST["upper_limit"];
-
-            if ($discount_product_for_define == "no") {
-                echo "Error: Not a discount product.";
-                echo "<div class = \"ok-button\">";
-                echo "<td><a href=\"admindashboard.php\">   OK</a></td>";
-                echo "</div>";
-                exit;
-            }
-
-            if (!filter_var($purchase_quantity, FILTER_VALIDATE_INT)) {
-                echo "Error: purchase quantity must be integer.";
-                echo "<div class = \"ok-button\">";
-                echo "<td><a href=\"admindashboard.php\">   OK</a></td>";
-                echo "</div>";
-                exit;
-            }
-
-            if (!filter_var($discount, FILTER_VALIDATE_FLOAT)) {
-                echo "Error: price must be a valid floating-point number.";
-                echo "<div class=\"ok-button\">";
-                echo "<td><a href=\"admindashboard.php\">OK</a></td>";
-                echo "</div>";
-                exit;
-            }
-
-            if ($unit_price < $discount) {
-                echo "Error: discount must be lower than unit price.";
-                echo "<div class = \"ok-button\">";
-                echo "<td><a href=\"admindashboard.php\">   OK</a></td>";
-                echo "</div>";
-                exit;
-            }
-
-            if (!filter_var($lower_limit, FILTER_VALIDATE_INT)) {
-                echo "Error: lower limit must be integer.";
-                echo "<div class = \"ok-button\">";
-                echo "<td><a href=\"admindashboard.php\">   OK</a></td>";
-                echo "</div>";
-                exit;
-            }
-
-            if (!filter_var($upper_limit, FILTER_VALIDATE_INT)) {
-                echo "Error: upper_limit must be integer.";
-                echo "<div class = \"ok-button\">";
-                echo "<td><a href=\"admindashboard.php\">   OK</a></td>";
-                echo "</div>";
-                exit;
-            }
-
-            if ($upper_limit < $lower_limit) {
-                echo "Error: upper limit must be lower than upper limit.";
-                echo "<div class = \"ok-button\">";
-                echo "<td><a href=\"admindashboard.php\">   OK</a></td>";
-                echo "</div>";
-                exit;
-            }
-
-            // Check if the free issue already exists in the database
-            $sql_check_discount = "SELECT * FROM products_discount WHERE product_code = '$product_code'";
-            $result_check_discount = $conn->query($sql_check_discount);
-            if ($result_check_discount->num_rows > 0) {
-                echo "Error: Discount already exists. Please choose a different discount.";
-                echo "<div class = \"ok-button\">";
-                echo "<td><a href=\"admindashboard.php\">   OK</a></td>";
-                echo "</div>";
-                exit;
-            }
-
-            // Insert the free issues data into the user table
-            $sql_insert_discount = "INSERT INTO products_discount (discount_label, type, product_code, purchase_quantity, discount, lower_limit, upper_limit)
-                            VALUES ($next_discount_code_padded ,'$type', '$product_code', '$purchase_quantity', '$discount', '$lower_limit', '$upper_limit' )";
-
-            if ($conn->query($sql_insert_discount) === TRUE) {
-                echo "discount registration successful!";
-                echo "<div class = \"ok-button\">";
-                echo "<td><a href=\"admindashboard.php\">   OK</a></td>";
-                echo "</div>";
-            } else {
-                echo "Error: " . $sql_insert_discount . "<br>" . $conn->error;
-            }
-        }
-        ?>
-    </div>
 
 </div>

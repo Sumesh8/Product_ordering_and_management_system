@@ -1,8 +1,6 @@
-<?php echo date('Y-m-d H:i:s'); ?>
-<?php $d = date('Y-m-d'); ?>
-<?php $t = date('H:i:s'); 
- echo $d;
- echo $t;
-
-
+<?php 
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["print_order"])) {
+    $order_number = $_POST["order_number"];
+echo $order_number;
+}
 ?>

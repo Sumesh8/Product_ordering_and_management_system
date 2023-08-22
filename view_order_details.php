@@ -31,14 +31,13 @@
                             <td><?php echo $row['order_date']; ?></td>
                             <td><?php echo $row['order_time']; ?></td>
                             <td><?php echo $row['net_amount']; ?></td>
-
-
-
-
                             <td>
                                 <form method="post">
                                     <input type="hidden" name="order_number" value="<?php echo $row['order_number']; ?>">
-                                    <button type="submit" name="submit_order_details" class="submit-buttons">View</button>
+                                    <input type="hidden" name="customer_username" value="<?php echo $row['username']; ?>">
+                                    <a href="#order-view">                                
+                                        <button type="submit" name="submit_order_details" class="submit-buttons">View</button>
+                                    </a>
                                 </form>
                             </td>
 
@@ -50,7 +49,9 @@
                 <tr>
                     <td colspan="6"></td>
                     <td>
-                        <button type="submit" name="bulk_operation" class="submit-buttons">Perform Bulk Operation</button>
+                        <a href="#order-view">
+                            <button type="submit" name="bulk_operation" class="submit-buttons">Perform Bulk Operation</button>
+                        </a>
                     </td>
                 </tr>
             </table>
@@ -63,6 +64,8 @@
     if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit_order_details"])) {
 
         $submit_order_number = $_POST["order_number"];
+        $customer_username = $_POST["customer_username"];
+
 
         // SQL query to select order number and free_product from product table
         $sql_select_order__product_details = "SELECT * FROM purchased_product WHERE order_number = '$submit_order_number'";
@@ -70,7 +73,14 @@
     ?>
 
         <h2>Selected Order Details</h2>
+        <br>
+        <div class="form-group">
+            <label for="orderIDSelected">Order Number: <?php echo $submit_order_number ?></label>
+        </div>
 
+        <div class="form-group">
+            <label for="usernameSelected">Customer Username: <?php echo $customer_username ?> </label>
+        </div>
 
         <div class="tablebox7">
             <table>
@@ -88,7 +98,6 @@
                 </tr>
 
                 <?php
-                echo "<br><br>";
                 $netAmount = 0;
                 while ($row = $result_order_product_details->fetch_assoc()) {
                     $netAmount += $row['amount']; ?>
@@ -114,7 +123,9 @@
 
                 <tr>
                     <td colspan="9" align="right"><strong>Total Net Amount:</strong></td>
-                    <td><?php echo $netAmount; ?></td>
+                    <td><?php 
+                    $formattedNetAmount = number_format($netAmount, 2);
+                    echo $formattedNetAmount; ?></td>
                     <td></td>
                 </tr>
             </table>
@@ -163,7 +174,7 @@
             if (isset($_POST['selected_orders'])) {
                 foreach ($_POST['selected_orders'] as $selected_order) {
                     $submit_order_number = $selected_order;
-                    $submitted_orders[] = $submit_order_number; 
+                    $submitted_orders[] = $submit_order_number;
 
                     $sql_select_order_bulk = "SELECT * FROM order_details WHERE order_number = '$submit_order_number'";
                     $result_order_bulk = $conn->query($sql_select_order_bulk);
@@ -224,25 +235,33 @@
         ?>
         <tr>
             <td colspan="15" align="right">Total Net Amount :</td>
-            <td><?php echo $totalNetAmount; ?></td>
+            <td><?php 
+            $formattedTotalNetAmount = number_format($totalNetAmount, 2);
+            echo $formattedTotalNetAmount; ?></td>
 
         </tr>
         </table>
     </div>
 
-    <div class = "button-container">
-        <form action="generate_csv.php" method="post">
-        input type="hidden" name="order_numbers" value="<?php echo htmlspecialchars(json_encode($submitted_orders)); ?>">
-    <button type="submit" name="print_order" class="submit-buttons">Print CSV</button>
+    <div class="button-container">
+        <form action="generate_invoce_csv.php" method="post">
+        <?php foreach ($submitted_orders as $order_number) { ?>
+            <input type="hidden" name="order_number[]" value="<?php echo $order_number; ?>">
+        <?php } ?>
+
+            <button type="submit" name="print_order" class="submit-buttons">Print CSV</button>
         </form>
 
-        <form action="generate_pdf.php" method="post">
-            <input type="hidden" name="order_number" value="<?php echo $submitted_orders; ?>">
-            <button type="submit" name="print_order" class = "submit-buttons">Print PDF</button>
+        <form action="generate_invoice_pdf.php" method="post">
+        <?php foreach ($submitted_orders as $order_number) { ?>
+            <input type="hidden" name="order_number[]" value="<?php echo $order_number; ?>">
+        <?php } ?>
+            <button type="submit" name="print_order" class="submit-buttons">Print PDF</button>
         </form>
+        </div>
 
-<?php
+    <?php
 
     }
 
-?>
+    ?>

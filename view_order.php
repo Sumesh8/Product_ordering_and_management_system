@@ -32,7 +32,9 @@
             </select>
         </div>
         <input type="hidden" name="selected_order_label" id="selected_order_label" value="">
+        <a href="#placing-order">
         <button type="submit" name="view_order" class = "submit-buttons" > View</button>
+            </a>
 
     </form>
 
@@ -40,9 +42,17 @@
 
     if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["view_order"])) {
         $order_number = $_POST["selected_order_label"];
-
-
+        $customer_username = $_POST["username0"];
     ?>
+
+    <br>
+    <div class="form-group">
+            <label for="orderIDSelected">Order Number: <?php echo $order_number ?></label>
+    </div>
+
+        <div class="form-group">
+            <label for="usernameSelected">Customer Username: <?php echo $customer_username ?> </label>
+        </div>
 
         <div class="tablebox5">
             <table>
@@ -94,7 +104,9 @@
 
                 <tr>
                     <td colspan="9" align="right"><strong>Total Net Amount:</strong></td>
-                    <td><?php echo $netAmount; ?></td>
+                    <td><?php 
+                    $formattedNetAmount = number_format($netAmount, 2);
+                    echo $formattedNetAmount; ?></td>
                     <td></td>
                 </tr>
             </table>

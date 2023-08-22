@@ -3,6 +3,7 @@
 <div class="error-message">
     <?php
     require_once('config.php');
+    $Message = " ";
     if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit_customer_edit"])) {
         $user_code = $_POST["customer_code"];
         $customer_name = $_POST["customer_name"];
@@ -22,9 +23,11 @@
 
         if ($result_check_usercode->num_rows == 0) {
             $Message = "Error: Invalid User.";
-        } elseif ($result_check_usercode->num_rows > 0) {
+        } 
+        
+        elseif ($result_check_usercode->num_rows > 0) {
             $row1 = $result_check_usercode->fetch_assoc();
-            if ($customer_name != $row1['username']) {
+            if ($username != $row1['username']) {
                 if ($result_check_username->num_rows > 0) {
                     $row2 = $result_check_username->fetch_assoc();
                     if ($username == $row2['username']) {
@@ -35,14 +38,16 @@
         }
 
         // Validate contact number (must be exactly 10 digits)
-        elseif (!preg_match("/^[0-9]{10}$/", $customer_contact)) {
+        if (!preg_match("/^[0-9]{10}$/", $customer_contact) && $Message == " ") {
             $Message = "Error: Contact number must be exactly 10 digits.";
         }
 
         // Validate password and confirm password match
-        elseif ($password !== $confirm_password) {
+        elseif ($password !== $confirm_password && $Message == " " ) {
             $Message = "Error: Passwords do not match.";
-        } else {
+        } 
+        
+        elseif ($Message == " ") {
             // Update the customer data into the user 
             $sql_update_customer = "UPDATE user SET 
                 name = '$customer_name',

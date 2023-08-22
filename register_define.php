@@ -17,7 +17,7 @@
 
 
 
-    <form method="post">
+    <form method="post" action = "add_register_define.php">
         <div class="form-group">
             <label for="free_issues_label">Free Issues Label:</label>
             <input type="text" name="free_issues_label" id="free_issues_label" value="<?php echo $next_define_code_padded; ?>" readonly>
@@ -113,115 +113,5 @@
         // Trigger the change event initially to set the initial value
         updateInputField();
     </script>
-
-    <div class="error-message">
-        <?php
-        if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit_define_register"])) {
-            $type = $_POST["type"];
-            $product_name = $_POST["selected_product_name"];
-            // Select product code,
-            $sql_check_product = "SELECT product_code FROM product WHERE product_name = '$product_name'";
-            $result_products = $conn->query($sql_check_product);
-            if ($result_products->num_rows > 0) {
-                while ($row = $result_products->fetch_assoc()) {
-                    $product_code = $row['product_code'];
-                }
-            } else {
-                // No products found
-                echo "Error: No products found.";
-                echo "<div class = \"ok-button\">";
-                echo "<td><a href=\"admindashboard.php\">   OK</a></td>";
-                echo "</div>";
-                exit;
-            }
-            
-            $free_product_for_define = $_POST["free_product_for_define"];
-            $purchase_quantity = $_POST["purchase_quantity"];
-            $free_quantity = $_POST["free_quantity"];
-            $lower_limit = $_POST["lower_limit"];
-            $upper_limit = $_POST["upper_limit"];
-
-            if ($free_product_for_define == "no") {
-                echo "Error: Not a free product.";
-                echo "<div class = \"ok-button\">";
-                echo "<td><a href=\"admindashboard.php\">   OK</a></td>";
-                echo "</div>";
-                exit;
-            }
-
-            if (!filter_var($purchase_quantity, FILTER_VALIDATE_INT)) {
-                echo "Error: purchase quantity must be integer.";
-                echo "<div class = \"ok-button\">";
-                echo "<td><a href=\"admindashboard.php\">   OK</a></td>";
-                echo "</div>";
-                exit;
-            }
-
-            if (!filter_var($free_quantity, FILTER_VALIDATE_INT)) {
-                echo "Error: free quantity must be integer.";
-                echo "<div class = \"ok-button\">";
-                echo "<td><a href=\"admindashboard.php\">   OK</a></td>";
-                echo "</div>";
-                exit;
-            }
-
-            if ($purchase_quantity < $free_quantity) {
-                echo "Error: free quantity must be lower than purchase quantity.";
-                echo "<div class = \"ok-button\">";
-                echo "<td><a href=\"admindashboard.php\">   OK</a></td>";
-                echo "</div>";
-                exit;
-            }
-
-            if (!filter_var($lower_limit, FILTER_VALIDATE_INT)) {
-                echo "Error: lower limit must be integer.";
-                echo "<div class = \"ok-button\">";
-                echo "<td><a href=\"admindashboard.php\">   OK</a></td>";
-                echo "</div>";
-                exit;
-            }
-
-            if (!filter_var($upper_limit, FILTER_VALIDATE_INT)) {
-                echo "Error: upper_limit must be integer.";
-                echo "<div class = \"ok-button\">";
-                echo "<td><a href=\"admindashboard.php\">   OK</a></td>";
-                echo "</div>";
-                exit;
-            }
-
-            if ($upper_limit < $lower_limit) {
-                echo "Error: free limit be lower than upper limit.";
-                echo "<div class = \"ok-button\">";
-                echo "<td><a href=\"admindashboard.php\">   OK</a></td>";
-                echo "</div>";
-                exit;
-            }
-
-            // Check if the free issue already exists in the database
-            $sql_check_define = "SELECT * FROM define_free_issues WHERE product_code = '$product_code'";
-            $result_check_define = $conn->query($sql_check_define);
-            if ($result_check_define->num_rows > 0) {
-                echo "Error: free issues already exists. Please choose a different free issues.";
-                echo "<div class = \"ok-button\">";
-                echo "<td><a href=\"admindashboard.php\">   OK</a></td>";
-                echo "</div>";
-                exit;
-            }
-
-            // Insert the free issues data into the user table
-            $sql_insert_define = "INSERT INTO define_free_issues (free_issues_label, type, product_code, purchase_quantity, free_quantity, lower_limit, upper_limit)
-                            VALUES ($next_define_code_padded,'$type', '$product_code', '$purchase_quantity', '$free_quantity', '$lower_limit', '$upper_limit' )";
-
-            if ($conn->query($sql_insert_define) === TRUE) {
-                echo "Free issue registration successful!";
-                echo "<div class = \"ok-button\">";
-                echo "<td><a href=\"admindashboard.php\">   OK</a></td>";
-                echo "</div>";
-            } else {
-                echo "Error: " . $sql_insert_define . "<br>" . $conn->error;
-            }
-        }
-        ?>
-    </div>
-
 </div>
+    

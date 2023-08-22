@@ -4,7 +4,7 @@ require_once "config.php";
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["print_order"])) {
     $order_number = $_POST["order_number"];
 
-    $csv_file_path = 'table_data.csv';
+    $csv_file_path = 'Order_product_detals.csv';
 
     $csv_file = fopen($csv_file_path, 'w');
     fputcsv($csv_file, [
@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["print_order"])) {
 
     // Set the appropriate headers for file download
     header('Content-Type: application/csv');
-    header('Content-Disposition: attachment; filename="table_data.csv"');
+    header('Content-Disposition: attachment; filename="Order_product_detals.csv"');
     header('Content-Length: ' . filesize($csv_file_path));
 
     // Output the CSV file to the browser

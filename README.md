@@ -48,6 +48,8 @@ Be introduced to my versatile Product Ordering and Management system, showcasing
 ## Screenshots
 
 1. Secure login
-![1](https://github.com/Sumesh8/Product_ordering_and_management_system/assets/107548452/0512e12e-3e42-4ee0-938d-ab6ecea76e25)![2](https://github.com/Sumesh8/Product_ordering_and_management_system/assets/107548452/5a0b1fa6-136f-4113-9e71-2af11c4e2ba6)![3](https://github.com/Sumesh8/Product_ordering_and_management_system/assets/107548452/46f19c22-74ff-4336-a538-63925d48284a)
+![1](https://github.com/Sumesh8/Product_ordering_and_management_system/assets/107548452/0512e12e-3e42-4ee0-938d-ab6ecea76e25)
+![2](https://github.com/Sumesh8/Product_ordering_and_management_system/assets/107548452/5a0b1fa6-136f-4113-9e71-2af11c4e2ba6)
+![3](https://github.com/Sumesh8/Product_ordering_and_management_system/assets/107548452/46f19c22-74ff-4336-a538-63925d48284a)
 
 

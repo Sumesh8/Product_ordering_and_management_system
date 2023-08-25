@@ -55,4 +55,15 @@ Be introduced to my versatile Product Ordering and Management system, showcasing
 
 ![3](https://github.com/Sumesh8/Product_ordering_and_management_system/assets/107548452/46f19c22-74ff-4336-a538-63925d48284a)
 
+2. Admin dashboard
+![4](https://github.com/Sumesh8/Product_ordering_and_management_system/assets/107548452/e016d650-40ef-40e5-9363-dc3d558c53f3)
+
+3. Customer registration.
+![5](https://github.com/Sumesh8/Product_ordering_and_management_system/assets/107548452/7344b1ab-c9cf-41de-917a-3d5865097423)
+
+4. View Customer.
+![6](https://github.com/Sumesh8/Product_ordering_and_management_system/assets/107548452/a5878e70-958d-40e1-bb53-b0e50b50144e)
+
+5 Product registration.
+
 

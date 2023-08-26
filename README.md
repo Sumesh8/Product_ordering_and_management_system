@@ -91,7 +91,7 @@ Be introduced to my versatile Product Ordering and Management system, showcasing
 ![14](https://github.com/Sumesh8/Product_ordering_and_management_system/assets/107548452/85bc5f94-e79c-4f4b-965a-91759a6a7654)
 
 13. Printed invoice as csv file
-![17](https://3nd_management_system/assets/107548452/1e627a53-8bcc-4a00-99c2-5f0d8a02aa7d)
+![17](https://github.com/Sumesh8/Product_ordering_and_management_system/assets/107548452/3a4e5b47-9194-4a35-89ab-9cdb30169717)
 
 14. Printed invoice as pdf file
 ![18](https://github.com/Sumesh8/Product_ordering_and_management_system/assets/107548452/0dd5b1d3-f94f-48cd-a44b-ff23271182be)
@@ -111,12 +111,13 @@ Be introduced to my versatile Product Ordering and Management system, showcasing
 # Customer Panel
 
 1. Login to customer dashboard
+
 ![19](https://github.com/Sumesh8/Product_ordering_and_management_system/assets/107548452/cad139c8-82bf-4d00-bbd8-84488ad4aaec)
 
-2. Customer dashboard
+3. Customer dashboard
 ![20](https://github.com/Sumesh8/Product_ordering_and_management_system/assets/107548452/56e1149e-a9f8-43d7-bc6d-d73fcee38f58)
 
-3. View order in customer panel
+4. View order in customer panel
 ![21](https://github.com/Sumesh8/Product_ordering_and_management_system/assets/107548452/2125af63-e7bf-4efb-9ed7-870182c030e0)
 
 

@@ -65,5 +65,6 @@ Be introduced to my versatile Product Ordering and Management system, showcasing
 ![6](https://github.com/Sumesh8/Product_ordering_and_management_system/assets/107548452/a5878e70-958d-40e1-bb53-b0e50b50144e)
 
 5 Product registration.
+![7](https://github.com/Sumesh8/Product_ordering_and_management_system/assets/107548452/37a9e60a-0fe6-4ed1-9077-724ee2b6d1c8)
 
 

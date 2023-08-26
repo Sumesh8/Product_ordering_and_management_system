@@ -12,7 +12,7 @@
         $next_user_code_padded = str_pad($next_user_code, 4, '0', STR_PAD_LEFT);
         ?>
 
-        <form method="post" >
+        <form method="post" action = "add_register_customer.php">
             <div class="form-group">
                 <label for="customer_name">Customer Name:</label>
                 <input type="text" name="customer_name" id="customer_name" required>

@@ -90,10 +90,10 @@ Be introduced to my versatile Product Ordering and Management system, showcasing
 12. View invoice
 ![14](https://github.com/Sumesh8/Product_ordering_and_management_system/assets/107548452/85bc5f94-e79c-4f4b-965a-91759a6a7654)
 
-13. Printed invoice as csv file
+13. Print invoice as csv file
 ![17](https://github.com/Sumesh8/Product_ordering_and_management_system/assets/107548452/3a4e5b47-9194-4a35-89ab-9cdb30169717)
 
-14. Printed invoice as pdf file
+14. Print invoice as pdf file
 ![18](https://github.com/Sumesh8/Product_ordering_and_management_system/assets/107548452/0dd5b1d3-f94f-48cd-a44b-ff23271182be)
 
 15. Display success messages

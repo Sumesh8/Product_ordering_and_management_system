@@ -50,5 +50,4 @@
 
             <button type="submit" name="submit_customer_register" class= "submit-buttons">Register Customer</button>
         </form>
-
 </div>

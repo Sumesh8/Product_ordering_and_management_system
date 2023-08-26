@@ -33,7 +33,7 @@
         $_SESSION['username'] = $username;
 
         // Prepare and execute the query to check credentials
-        $sql = "SELECT * FROM user WHERE name = '$username' LIMIT 1";
+        $sql = "SELECT * FROM user WHERE username = '$username' LIMIT 1";
         $result = $conn->query($sql);
 
         if ($result->num_rows === 1) {

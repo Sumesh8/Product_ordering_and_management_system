@@ -1,20 +1,20 @@
-## Product ordering and management system
+# Product ordering and management system
 
-## Table of Contents
+# Table of Contents
 
 - [Introduction](#introduction)
 - [Functionality](#functionality)
 - [Technologies](#technologies)
 - [Screenshots](#screenshots)
 
-## Introduction
+# Introduction
 
 Be introduced to my versatile Product Ordering and Management system, showcasing user-friendly admin and customer interfaces. This project encompasses a range of functionalities, including customer registration, product registration, handling of free issues and discounts, selection of flat or multiple options for free issues and discounts, placement of orders for customers, tracking of orders, and the capability to generate invoices in both bulk and individual formats. Invoices can be effortlessly created in PDF or CSV formats through the admin interface. Furthermore, the system provides insights into customer details, order history, and facilitates the generation of invoices for specific orders in bulk or individually. These invoices are available in both PDF and CSV formats for customer convenience.
 
-## Functionality
+# Functionality
 - Secure login is provided for both admin and customer users. The user type (admin or non-admin customer) is determined upon login, directing admins to the admin dashboard and customers to the customer dashboard.
 
-# Admin Panel
+## Admin Panel
 - Customers can be registered, viewed, and edited.
 - Customer search functionality is available using usernames, customer names, or customer IDs in the view tab.
 - Products can be registered, viewed, and edited.
@@ -31,12 +31,12 @@ Be introduced to my versatile Product Ordering and Management system, showcasing
 - Displaying Error Messages: "Invalid Login Credentials," "Invalid Quantity," and "Invalid Input Format".
 - Displaying Success Messages After Operations.
 
-# Customer Panel
+## Customer Panel
 
 - User information of the logged-in customer can be viewed.
 - All order details of the customer are displayed, with the option to generate bulk invoices from selected orders available.
 
-## Technologies
+# Technologies
 - MySQL (document database)
 - PHP 
 - JavaScript
@@ -45,9 +45,9 @@ Be introduced to my versatile Product Ordering and Management system, showcasing
 - VS CODE (code editor)
 - GitHub (project management tool)
   
-## Screenshots
+# Screenshots
 
-# Admin Panel
+## Admin Panel
 
 1. Secure login
    
@@ -123,7 +123,7 @@ Be introduced to my versatile Product Ordering and Management system, showcasing
 
 ![f](https://github.com/Sumesh8/Product_ordering_and_management_system/assets/107548452/728ba2da-8376-4023-9325-0ec07736650c)
 
-# Customer Panel
+## Customer Panel
 
 1. Login to customer dashboard
 
